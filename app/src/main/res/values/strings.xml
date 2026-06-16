@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kotlin Quiz</string>
+    <string name="quiz_title">Quiz Lập Trình Kotlin</string>
+    <string name="home_subtitle">Ôn nhanh Kotlin và Android qua 10 câu trắc nghiệm.</string>
+    <string name="topic_label">Chủ đề</string>
+    <string name="topic_kotlin">Kotlin Basics</string>
+    <string name="topic_android_ui">Android UI</string>
+    <string name="start_quiz">Bắt đầu</string>
+    <string name="view_high_score">Xem điểm cao nhất</string>
+    <string name="high_score_empty">Điểm cao nhất: chưa có</string>
+    <string name="high_score_title">Điểm cao nhất</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="question_counter">Câu hỏi %1$d/%2$d</string>
+    <string name="score_counter">Điểm: %1$d</string>
+    <string name="timer_format">%1$ds</string>
+    <string name="feedback_correct">Chính xác!</string>
+    <string name="feedback_wrong">Chưa đúng</string>
+    <string name="feedback_timeout">Hết giờ</string>
+    <string name="next_question">Tiếp theo</string>
+    <string name="show_result">Xem kết quả</string>
+    <string name="result_title">Kết quả</string>
+    <string name="score_format">%1$d/%2$d</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="duration_label">Thời gian</string>
+    <string name="review_title">Review câu hỏi</string>
+    <string name="new_high_score">Điểm cao mới!</string>
+    <string name="retry">Làm lại</string>
+    <string name="home">Về trang chủ</string>
+    <string name="your_answer">Bạn chọn: %1$s</string>
+    <string name="no_answer">Bạn chưa chọn đáp án</string>
+    <string name="timeout_answer">Hết giờ, bạn chưa chọn đáp án</string>
+    <string name="correct_answer">Đáp án đúng: %1$s</string>
+    <string name="dialog_close">Đóng</string>
+</resources>
