@@ -5,6 +5,7 @@
     <string name="home_subtitle">Ôn nhanh Kotlin và Android qua 10 câu trắc nghiệm.</string>
     <string name="topic_label">Chủ đề</string>
     <string name="topic_kotlin">Kotlin Basics</string>
+    <string name="topic_kotlin_advanced">Kotlin Nâng Cao</string>
     <string name="topic_android_ui">Android UI</string>
     <string name="start_quiz">Bắt đầu</string>
     <string name="view_high_score">Xem điểm cao nhất</string>

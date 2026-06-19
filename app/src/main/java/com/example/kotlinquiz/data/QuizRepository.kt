@@ -113,6 +113,121 @@ object QuizRepository {
             explanation = "suspend đánh dấu hàm có thể tạm dừng và tiếp tục trong coroutine mà không chặn thread."
         ),
         QuizQuestion(
+            id = 3001,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "Dispatcher nào thường phù hợp cho tác vụ đọc/ghi file hoặc gọi API?",
+            options = listOf("Dispatchers.Main", "Dispatchers.IO", "Dispatchers.Default", "Dispatchers.Unconfined"),
+            correctIndex = 1,
+            explanation = "Dispatchers.IO được tối ưu cho tác vụ I/O như đọc file, truy vấn database hoặc gọi network."
+        ),
+        QuizQuestion(
+            id = 3002,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "Flow trong Kotlin mặc định là cold stream, nghĩa là gì?",
+            options = listOf(
+                "Flow chỉ chạy khi có collector thu thập dữ liệu",
+                "Flow luôn chạy trên main thread",
+                "Flow không thể phát nhiều giá trị",
+                "Flow tự lưu dữ liệu vào SharedPreferences"
+            ),
+            correctIndex = 0,
+            explanation = "Cold flow chỉ bắt đầu thực thi block phát dữ liệu khi có lệnh collect."
+        ),
+        QuizQuestion(
+            id = 3003,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "Từ khóa inline trong Kotlin thường giúp ích điều gì?",
+            options = listOf(
+                "Tạo Activity mới",
+                "Ép mọi biến thành nullable",
+                "Chèn thân hàm vào nơi gọi để giảm overhead khi dùng lambda",
+                "Tự động lưu state khi xoay màn hình"
+            ),
+            correctIndex = 2,
+            explanation = "inline cho phép compiler chèn code của hàm vào call site, hữu ích với hàm bậc cao dùng lambda."
+        ),
+        QuizQuestion(
+            id = 3004,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "reified type parameter dùng được trong loại hàm nào?",
+            options = listOf("inline function", "data class", "enum class", "abstract property"),
+            correctIndex = 0,
+            explanation = "reified chỉ dùng với inline function để có thể truy cập kiểu generic tại runtime."
+        ),
+        QuizQuestion(
+            id = 3005,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "Sequence khác List ở điểm nào khi xử lý chuỗi map/filter lớn?",
+            options = listOf(
+                "Sequence luôn mutable",
+                "Sequence xử lý lazy, từng phần tử đi qua pipeline khi cần",
+                "Sequence chỉ dùng được với String",
+                "Sequence tự chạy song song trên nhiều thread"
+            ),
+            correctIndex = 1,
+            explanation = "Sequence dùng lazy evaluation nên có thể giảm tạo collection trung gian khi chain nhiều phép biến đổi."
+        ),
+        QuizQuestion(
+            id = 3006,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "by lazy trong Kotlin có hành vi nào?",
+            options = listOf(
+                "Khởi tạo lại giá trị mỗi lần truy cập",
+                "Chỉ dùng được cho biến var",
+                "Bắt buộc chạy trên background thread",
+                "Khởi tạo lần đầu khi được truy cập và cache lại giá trị"
+            ),
+            correctIndex = 3,
+            explanation = "lazy chỉ tính giá trị ở lần truy cập đầu tiên, sau đó trả lại giá trị đã được cache."
+        ),
+        QuizQuestion(
+            id = 3007,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "Scope function nào thường dùng để cấu hình object và trả về chính object đó?",
+            options = listOf("let", "run", "apply", "with"),
+            correctIndex = 2,
+            explanation = "apply chạy block trên receiver và trả về receiver, rất hợp để cấu hình object."
+        ),
+        QuizQuestion(
+            id = 3008,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "withContext trong coroutine thường dùng để làm gì?",
+            options = listOf(
+                "Tạo một enum mới",
+                "Chuyển CoroutineContext/Dispatcher và trả về kết quả",
+                "Xóa toàn bộ coroutine đang chạy",
+                "Chuyển XML layout sang Compose"
+            ),
+            correctIndex = 1,
+            explanation = "withContext đổi context cho một đoạn suspend code, ví dụ chuyển sang Dispatchers.IO để làm I/O."
+        ),
+        QuizQuestion(
+            id = 3009,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "sealed class hoặc sealed interface giúp ích gì khi dùng when?",
+            options = listOf(
+                "Compiler biết tập subtype hữu hạn để kiểm tra đủ nhánh",
+                "Tự động serialize object thành JSON",
+                "Làm class chạy nhanh hơn mọi class thường",
+                "Cho phép kế thừa từ mọi module mà không giới hạn"
+            ),
+            correctIndex = 0,
+            explanation = "sealed type giới hạn các subtype đã biết, nhờ đó when có thể được kiểm tra exhaustive an toàn hơn."
+        ),
+        QuizQuestion(
+            id = 3010,
+            topic = QuizTopic.KOTLIN_ADVANCED,
+            question = "Một suspend function nên được gọi từ đâu?",
+            options = listOf(
+                "Bất kỳ property getter nào",
+                "Chỉ từ file XML",
+                "Từ coroutine hoặc một suspend function khác",
+                "Chỉ từ constructor của Activity"
+            ),
+            correctIndex = 2,
+            explanation = "suspend function cần coroutine context, nên thường được gọi trong coroutine hoặc từ suspend function khác."
+        ),
+        QuizQuestion(
             id = 2001,
             topic = QuizTopic.ANDROID_UI,
             question = "Activity trong Android thường đại diện cho thành phần nào?",

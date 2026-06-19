@@ -11,7 +11,6 @@ import com.example.kotlinquiz.ui.common.ThemeManager
 import com.example.kotlinquiz.ui.common.WindowInsetsHelper
 import com.example.kotlinquiz.ui.quiz.QuizActivity
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.materialswitch.MaterialSwitch
 
@@ -36,14 +35,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTopicPicker() {
-        val topicGroup = findViewById<MaterialButtonToggleGroup>(R.id.topicGroup)
-        selectedTopicId = topicIdForButton(topicGroup.checkedButtonId)
+        val topicButtons = listOf(
+            findViewById<MaterialButton>(R.id.kotlinTopicButton),
+            findViewById<MaterialButton>(R.id.kotlinAdvancedTopicButton),
+            findViewById<MaterialButton>(R.id.androidTopicButton)
+        )
 
-        topicGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            if (isChecked) {
-                selectedTopicId = topicIdForButton(checkedId)
+        fun updateSelection() {
+            topicButtons.forEach { button ->
+                button.isChecked = topicIdForButton(button.id) == selectedTopicId
             }
         }
+
+        topicButtons.forEach { button ->
+            button.setOnClickListener {
+                selectedTopicId = topicIdForButton(button.id)
+                updateSelection()
+            }
+        }
+
+        updateSelection()
     }
 
     private fun setupDarkModeSwitch() {
@@ -85,6 +96,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun topicIdForButton(buttonId: Int): String {
         return when (buttonId) {
+            R.id.kotlinAdvancedTopicButton -> QuizTopic.KOTLIN_ADVANCED.id
             R.id.androidTopicButton -> QuizTopic.ANDROID_UI.id
             else -> QuizTopic.KOTLIN_BASICS.id
         }

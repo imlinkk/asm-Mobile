@@ -10,6 +10,11 @@ enum class QuizTopic(
         title = "Kotlin Basics",
         description = "Cú pháp, null safety, collection và data class"
     ),
+    KOTLIN_ADVANCED(
+        id = "kotlin_advanced",
+        title = "Kotlin Nâng Cao",
+        description = "Coroutine, Flow, generic và các kỹ thuật Kotlin nâng cao"
+    ),
     ANDROID_UI(
         id = "android_ui",
         title = "Android UI",

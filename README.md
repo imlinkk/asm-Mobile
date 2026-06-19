@@ -5,7 +5,7 @@ Android quiz app viết bằng Kotlin, XML Layout và mô hình MVVM cơ bản.
 ## Chức năng đã có
 
 - Màn hình chính với tiêu đề "Quiz Lập Trình Kotlin".
-- Chọn chủ đề: Kotlin Basics hoặc Android UI.
+- Chọn chủ đề: Kotlin Basics, Kotlin Nâng Cao hoặc Android UI.
 - Nút Bắt đầu và Xem điểm cao nhất.
 - 10 câu hỏi mỗi lượt, mỗi câu có 4 lựa chọn và 1 đáp án đúng.
 - Random thứ tự câu hỏi trong chủ đề.
