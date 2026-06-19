@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#1967D2</color>
+    <color name="primary">#006B5F</color>
     <color name="on_primary">#FFFFFF</color>
-    <color name="primary_container">#D7E3FF</color>
-    <color name="on_primary_container">#001B3F</color>
-    <color name="secondary">#6B4EFF</color>
-    <color name="surface">#FBFCFF</color>
-    <color name="surface_variant">#E7ECF4</color>
-    <color name="on_surface">#1C1F24</color>
-    <color name="on_surface_variant">#444B57</color>
-    <color name="outline">#747B86</color>
-    <color name="success_container">#CFEAD6</color>
-    <color name="on_success_container">#0B3D1A</color>
-    <color name="error_container">#FFDAD6</color>
-    <color name="on_error_container">#410002</color>
-    <color name="warning_container">#FFE7B3</color>
-    <color name="on_warning_container">#3A2500</color>
+    <color name="primary_container">#D7F2EA</color>
+    <color name="on_primary_container">#003C34</color>
+    <color name="secondary">#B6533C</color>
+    <color name="surface">#F8FBF7</color>
+    <color name="surface_variant">#EAF3EF</color>
+    <color name="surface_elevated">#FFFFFF</color>
+    <color name="background_top">#F7FBF8</color>
+    <color name="background_bottom">#FFF8ED</color>
+    <color name="badge_background">#FBE3D8</color>
+    <color name="on_badge">#5B2113</color>
+    <color name="timer_chip">#E4F5F0</color>
+    <color name="on_surface">#17201E</color>
+    <color name="on_surface_variant">#4C5B56</color>
+    <color name="outline">#74827D</color>
+    <color name="outline_subtle">#D5E0DB</color>
+    <color name="success_container">#D4F3D9</color>
+    <color name="on_success_container">#0D3D1D</color>
+    <color name="error_container">#FFE0DB</color>
+    <color name="on_error_container">#5A130C</color>
+    <color name="warning_container">#FFE9B8</color>
+    <color name="on_warning_container">#4B3000</color>
 </resources>

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinquiz.R
 import com.example.kotlinquiz.data.QuizTopic
+import com.example.kotlinquiz.ui.common.WindowInsetsHelper
 import com.example.kotlinquiz.ui.home.MainActivity
 import com.example.kotlinquiz.ui.quiz.QuizActivity
 import com.google.android.material.button.MaterialButton
@@ -41,6 +42,7 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
+        WindowInsetsHelper.applySystemBarsPadding(this)
 
         bindViews()
         setupReviewList()

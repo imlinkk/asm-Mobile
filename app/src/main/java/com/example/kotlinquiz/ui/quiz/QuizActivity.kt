@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.kotlinquiz.R
 import com.example.kotlinquiz.data.QuizTopic
+import com.example.kotlinquiz.ui.common.WindowInsetsHelper
 import com.example.kotlinquiz.ui.result.ResultActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
@@ -36,6 +37,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+        WindowInsetsHelper.applySystemBarsPadding(this)
 
         bindViews()
         setupActions()

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
+    android:background="@drawable/bg_app"
     tools:context=".ui.quiz.QuizActivity">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/quizScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,149 +22,199 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/screen_padding">
+            android:padding="@dimen/screen_padding"
+            android:paddingBottom="12dp">
 
-            <TextView
-                android:id="@+id/quizTopicTitle"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/colorOnSurface"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                tools:text="Kotlin Basics" />
+                app:cardBackgroundColor="@color/surface_elevated"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/outline_subtle"
+                app:strokeWidth="1dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/questionCounter"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="?attr/colorOnSurfaceVariant"
-                    android:textSize="15sp"
-                    tools:text="Câu hỏi 1/10" />
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
 
-                <TextView
-                    android:id="@+id/scoreCounter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="?attr/colorOnSurfaceVariant"
-                    android:textSize="15sp"
-                    tools:text="Điểm: 0" />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/questionProgress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:trackCornerRadius="4dp" />
+                        <TextView
+                            android:id="@+id/quizTopicTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:layout_weight="1"
+                            android:textColor="?attr/colorOnSurface"
+                            android:textSize="21sp"
+                            android:textStyle="bold"
+                            tools:text="Kotlin Basics" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_timer_chip"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_timer_24"
-                    app:tint="?attr/colorOnSurfaceVariant" />
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_timer_24"
+                                app:tint="?attr/colorPrimary" />
 
-                <TextView
-                    android:id="@+id/timerText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="?attr/colorOnSurface"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:text="30s" />
-            </LinearLayout>
+                            <TextView
+                                android:id="@+id/timerText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                tools:text="30s" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/questionCounter"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:textSize="15sp"
+                            tools:text="Câu hỏi 1/10" />
+
+                        <TextView
+                            android:id="@+id/scoreCounter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:text="Điểm: 0" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/questionProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:trackCornerRadius="4dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/questionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:lineSpacingExtra="3dp"
+                android:layout_marginTop="@dimen/section_gap"
+                android:background="@drawable/bg_question_panel"
+                android:elevation="2dp"
+                android:lineSpacingExtra="4dp"
+                android:padding="18dp"
                 android:textColor="?attr/colorOnSurface"
-                android:textSize="21sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 tools:text="Từ khóa nào dùng để khai báo biến không thể gán lại trong Kotlin?" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/optionA"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:minHeight="56dp"
+                android:layout_marginTop="16dp"
+                android:minHeight="@dimen/control_height"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="12dp"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
-                app:cornerRadius="@dimen/card_radius" />
+                app:cornerRadius="@dimen/card_radius"
+                app:iconGravity="textEnd"
+                app:iconPadding="10dp"
+                app:strokeWidth="1dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/optionB"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:minHeight="56dp"
+                android:minHeight="@dimen/control_height"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="12dp"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
-                app:cornerRadius="@dimen/card_radius" />
+                app:cornerRadius="@dimen/card_radius"
+                app:iconGravity="textEnd"
+                app:iconPadding="10dp"
+                app:strokeWidth="1dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/optionC"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:minHeight="56dp"
+                android:minHeight="@dimen/control_height"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="12dp"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
-                app:cornerRadius="@dimen/card_radius" />
+                app:cornerRadius="@dimen/card_radius"
+                app:iconGravity="textEnd"
+                app:iconPadding="10dp"
+                app:strokeWidth="1dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/optionD"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:minHeight="56dp"
+                android:minHeight="@dimen/control_height"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="12dp"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
-                app:cornerRadius="@dimen/card_radius" />
+                app:cornerRadius="@dimen/card_radius"
+                app:iconGravity="textEnd"
+                app:iconPadding="10dp"
+                app:strokeWidth="1dp" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/feedbackCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="@dimen/section_gap"
                 android:visibility="gone"
                 app:cardBackgroundColor="?attr/colorSurfaceVariant"
                 app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/outline_subtle"
+                app:strokeWidth="1dp"
                 tools:visibility="visible">
 
                 <LinearLayout
@@ -186,7 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:lineSpacingExtra="2dp"
+                        android:lineSpacingExtra="3dp"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="14sp"
                         tools:text="val tạo biến chỉ gán một lần, phù hợp với dữ liệu không đổi." />
@@ -198,13 +249,15 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nextButton"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/control_height"
         android:layout_marginHorizontal="@dimen/screen_padding"
         android:layout_marginBottom="16dp"
         android:enabled="false"
         android:text="@string/next_question"
         android:textSize="16sp"
-        app:iconGravity="textStart"
+        app:icon="@drawable/ic_arrow_forward_24"
+        app:iconGravity="textEnd"
+        app:iconPadding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

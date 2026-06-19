@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
+    android:background="@drawable/bg_app"
     tools:context=".ui.home.MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,46 +24,89 @@
             android:orientation="vertical"
             android:padding="@dimen/screen_padding">
 
-            <TextView
-                android:id="@+id/homeTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/quiz_title"
-                android:textColor="?attr/colorOnSurface"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/homeSubtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/home_subtitle"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                android:textSize="16sp" />
-
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:cardBackgroundColor="?attr/colorSurfaceVariant"
+                android:elevation="2dp"
+                app:cardBackgroundColor="@color/surface_elevated"
                 app:cardCornerRadius="@dimen/card_radius"
-                app:strokeColor="?attr/colorOutline"
+                app:strokeColor="@color/outline_subtle"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="18dp">
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_icon_container"
+                            android:padding="14dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_trophy_24"
+                                app:tint="?attr/colorPrimary" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/homeTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:text="@string/quiz_title"
+                            android:textColor="?attr/colorOnSurface"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/homeSubtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/home_subtitle"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_gap"
+                android:elevation="2dp"
+                app:cardBackgroundColor="@color/surface_elevated"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:strokeColor="@color/outline_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
 
                     <TextView
                         android:id="@+id/topicLabel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/topic_label"
-                        android:textColor="?attr/colorOnSurface"
-                        android:textSize="16sp"
+                        android:textColor="?attr/colorPrimary"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -76,52 +120,75 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/kotlinTopicButton"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="@dimen/control_height"
                             android:layout_weight="1"
+                            android:checkable="true"
                             android:text="@string/topic_kotlin"
                             android:textAllCaps="false"
-                            android:checkable="true" />
+                            app:icon="@drawable/ic_code_24"
+                            app:iconGravity="textStart" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/androidTopicButton"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="@dimen/control_height"
                             android:layout_weight="1"
+                            android:checkable="true"
                             android:text="@string/topic_android_ui"
                             android:textAllCaps="false"
-                            android:checkable="true" />
+                            app:icon="@drawable/ic_android_24"
+                            app:iconGravity="textStart" />
                     </com.google.android.material.button.MaterialButtonToggleGroup>
 
                     <TextView
                         android:id="@+id/highScoreSummary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_badge"
+                        android:lineSpacingExtra="2dp"
                         android:text="@string/high_score_empty"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:textSize="15sp" />
+                        android:textColor="@color/on_badge"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.materialswitch.MaterialSwitch
-                android:id="@+id/darkModeSwitch"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="@string/dark_mode"
-                android:textColor="?attr/colorOnSurface"
-                android:textSize="16sp"
-                android:textOn=""
-                android:textOff=""
-                app:showText="false" />
+                android:layout_marginTop="@dimen/section_gap"
+                android:background="@drawable/bg_switch_row"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/dark_mode"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/darkModeSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOn=""
+                    android:textOff=""
+                    app:showText="false" />
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/startButton"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="@dimen/control_height"
                 android:layout_marginTop="24dp"
                 android:text="@string/start_quiz"
                 android:textSize="16sp"
@@ -130,9 +197,9 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/highScoreButton"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="@dimen/control_height"
                 android:layout_marginTop="12dp"
                 android:text="@string/view_high_score"
                 android:textAllCaps="false"

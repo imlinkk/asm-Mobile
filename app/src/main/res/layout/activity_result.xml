@@ -4,91 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
+    android:background="@drawable/bg_app"
     tools:context=".ui.result.ResultActivity">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/resultHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/screen_padding"
+        android:layout_marginHorizontal="@dimen/screen_padding"
+        android:layout_marginTop="@dimen/screen_padding"
+        app:cardBackgroundColor="@color/surface_elevated"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/resultTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/result_title"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/resultScore"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            tools:text="8/10" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/outline_subtle"
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_icon_container"
+                    android:padding="13dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_trophy_24"
+                        app:tint="?attr/colorPrimary" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/resultTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:text="@string/result_title"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/resultPercent"
-                android:layout_width="0dp"
+                android:id="@+id/resultScore"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                android:textSize="16sp"
-                tools:text="80%" />
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                tools:text="8/10" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/resultPercent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_badge"
+                    android:gravity="center"
+                    android:textColor="@color/on_badge"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="80%" />
+
+                <TextView
+                    android:id="@+id/resultDuration"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_badge"
+                    android:gravity="center"
+                    android:textColor="@color/on_badge"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="Thời gian: 02:15" />
+            </LinearLayout>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/resultProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:max="100"
+                app:trackCornerRadius="4dp"
+                tools:progress="80" />
 
             <TextView
-                android:id="@+id/resultDuration"
-                android:layout_width="wrap_content"
+                android:id="@+id/highScoreBadge"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                android:textSize="16sp"
-                tools:text="Thời gian: 02:15" />
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_question_panel"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:padding="12dp"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="Điểm cao mới!" />
+
+            <TextView
+                android:id="@+id/reviewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/review_title"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
-        <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/resultProgress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:max="100"
-            app:trackCornerRadius="4dp"
-            tools:progress="80" />
-
-        <TextView
-            android:id="@+id/highScoreBadge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            tools:text="Điểm cao mới!" />
-
-        <TextView
-            android:id="@+id/reviewTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="@string/review_title"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reviewRecyclerView"
@@ -96,6 +144,7 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingHorizontal="@dimen/screen_padding"
+        android:paddingTop="14dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toTopOf="@id/resultActions"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,6 +156,8 @@
         android:id="@+id/resultActions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/surface_elevated"
+        android:elevation="4dp"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/screen_padding"
         android:paddingBottom="16dp"
@@ -118,7 +169,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/retryButton"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/control_height"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:text="@string/retry"
@@ -128,9 +179,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/homeButton"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/control_height"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:text="@string/home"

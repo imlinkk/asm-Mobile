@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinquiz.R
 import com.example.kotlinquiz.data.QuizTopic
 import com.example.kotlinquiz.ui.common.ThemeManager
+import com.example.kotlinquiz.ui.common.WindowInsetsHelper
 import com.example.kotlinquiz.ui.quiz.QuizActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButtonToggleGroup
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        WindowInsetsHelper.applySystemBarsPadding(this)
 
         setupTopicPicker()
         setupDarkModeSwitch()

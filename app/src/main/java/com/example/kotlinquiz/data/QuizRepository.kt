@@ -13,7 +13,7 @@ object QuizRepository {
         QuizQuestion(
             id = 1002,
             topic = QuizTopic.KOTLIN_BASICS,
-            question = "data class thường tự sinh nhóm hàm nào?",
+            question = "Data Class thường tự sinh nhóm hàm nào?",
             options = listOf(
                 "equals, hashCode, toString và copy",
                 "onCreate, onStart và onStop",
@@ -26,7 +26,7 @@ object QuizRepository {
         QuizQuestion(
             id = 1003,
             topic = QuizTopic.KOTLIN_BASICS,
-            question = "Toán tử safe-call ?. dùng để làm gì?",
+            question = "Toán tử 'safe-call ?' dùng để làm gì?",
             options = listOf(
                 "Ép kiểu dữ liệu",
                 "Chạy vòng lặp an toàn",
@@ -39,7 +39,7 @@ object QuizRepository {
         QuizQuestion(
             id = 1004,
             topic = QuizTopic.KOTLIN_BASICS,
-            question = "Toán tử Elvis ?: thường dùng trong tình huống nào?",
+            question = "Toán tử 'Elvis ?:' thường dùng trong tình huống nào?",
             options = listOf(
                 "Đổi tên package",
                 "Cung cấp giá trị mặc định khi biểu thức bên trái là null",
@@ -60,7 +60,7 @@ object QuizRepository {
         QuizQuestion(
             id = 1006,
             topic = QuizTopic.KOTLIN_BASICS,
-            question = "when trong Kotlin thường thay thế cấu trúc nào của Java?",
+            question = "When trong Kotlin thường thay thế cấu trúc nào của Java?",
             options = listOf("switch", "try-with-resources", "synchronized", "volatile"),
             correctIndex = 0,
             explanation = "when linh hoạt hơn switch và có thể dùng như một expression trả về giá trị."
@@ -68,7 +68,7 @@ object QuizRepository {
         QuizQuestion(
             id = 1007,
             topic = QuizTopic.KOTLIN_BASICS,
-            question = "lateinit var phù hợp nhất với trường hợp nào?",
+            question = "Lateinit var phù hợp nhất với trường hợp nào?",
             options = listOf(
                 "Biến primitive như Int",
                 "Biến val không đổi",
